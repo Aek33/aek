@@ -7,7 +7,9 @@ import javax.persistence.*;
 @Table( name = "l_reader", schema = "test")
 public class Library_reader {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "l_reader_seq")
+    @SequenceGenerator(name = "l_reader_seq", schema = "test",
+            sequenceName = "l_reader_seq", allocationSize = 1)
     @Column(name = "r_id")
     private long r_id;
     @Column(name = "r_surname")

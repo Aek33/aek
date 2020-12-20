@@ -5,11 +5,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 //Книга: АйДи, название, издательство, год издания
+//Свзязь многие-ко-многим с авторами
+//Свзязь многие-ко-многим с книгами с заказами
 @Entity
 @Table( name = "book", schema = "test")
 public class Book {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "book_seq")
+    @SequenceGenerator(name = "book_seq", schema = "test",
+            sequenceName = "book_seq", allocationSize = 1)
     @Column(name = "book_id")
     private long book_id;
     @Column(name = "book_name")
@@ -24,6 +28,7 @@ public class Book {
             joinColumns = @JoinColumn(name = "book_id", referencedColumnName = "book_id"),
             inverseJoinColumns = @JoinColumn(name = "author_id", referencedColumnName = "author_id"))
     private List<Book_author> book_authors = new ArrayList<>();
+
 
     public Book(){
     }

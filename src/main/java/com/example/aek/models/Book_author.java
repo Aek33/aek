@@ -5,11 +5,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 //Автор: АйДи, фамилия, имя
+//Свзязь многие-ко-многим с книгами
 @Entity
 @Table( name = "b_author", schema = "test")
 public class Book_author {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "b_author_seq")
+    @SequenceGenerator(name = "b_author_seq", schema = "test",
+            sequenceName = "b_author_seq", allocationSize = 1)
     @Column(name = "author_id")
     private long author_id;
     @Column(name = "a_surname", length = 30)
