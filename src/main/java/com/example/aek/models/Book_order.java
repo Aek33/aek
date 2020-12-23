@@ -17,6 +17,30 @@ public class Book_order {
     @Column(name = "limitation")
     private Long limitation;
 
+    public Book_order(){
+    }
 
+    public long getBook_order_number() {
+        return Book_order_number;
+    }
 
+    public void setBook_order_number(long book_order_number) {
+        Book_order_number = book_order_number;
+    }
+
+    public Date getDate_of_issue() {
+        return date_of_issue;
+    }
+
+    public void setDate_of_issue(Date date_of_issue) {
+        this.date_of_issue = date_of_issue;
+    }
+
+    public Long getLimitation() {
+        return limitation;
+    }
+
+    public void setLimitation(Long limitation) {
+        this.limitation = limitation;
+    }
 }

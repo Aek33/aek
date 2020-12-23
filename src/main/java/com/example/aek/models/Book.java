@@ -7,6 +7,7 @@ import java.util.List;
 //Книга: АйДи, название, издательство, год издания
 //Свзязь многие-ко-многим с авторами
 //Свзязь многие-ко-многим с книгами с заказами
+//А нужен ли вообще в b_year тип long?
 @Entity
 @Table( name = "book", schema = "test")
 public class Book {
@@ -20,7 +21,7 @@ public class Book {
     private String book_name;
     @Column(name = "publisher")
     private String publisher;
-    @Column(name = "b_year", length = 4) //А нужен ли тут вообще long?
+    @Column(name = "b_year", length = 4)
     private long b_year;
 
     @ManyToMany

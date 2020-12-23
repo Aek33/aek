@@ -15,13 +15,13 @@ public class BookService {
 
     @Autowired
     private BookRepository bookRepository;
-    // натйи все
+    // найти все
     public List<Book> getAllBooks(){
         List<Book> bookList = new ArrayList<>();
         bookRepository.findAll().forEach(bookList::add);
         return bookList;
     }
-    // натйи по айди
+    // найти по айди
     public Book getBookById(Long book_id) {
         Optional<Book> optionalBook = bookRepository.findById(book_id);
         return optionalBook.orElse(null);
